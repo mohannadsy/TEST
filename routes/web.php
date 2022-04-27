@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+//
+//Route::group(['middleware' => ['auth:sanctum']], function () {
+//    Route::get('/profile', function(Request $request) {
+//        return auth()->user();
+//    });
+//    Route::post('/sign-out', [AuthenticationController::class, 'logout']);
+//});
+
