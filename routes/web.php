@@ -13,6 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//
+//
+//Route::view('/','dashboard')->name('dashboard');
+//
+//Route::get('posts',[\App\Http\Controllers\PostController::class,'index']);
+
+// Route::redirect('/', 'login');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('posts', \App\Http\Controllers\PostController::class);
+    Route::inertia('pages/about', 'About')->name('pages.about');
 });
+
+Route::inertia('login', 'Auth/Login')->name('login');
+Route::post('login', [\App\Http\Controllers\Auth\LoginController::class, 'store'])
+    ->name('login.post');
+Route::post('logout', [\App\Http\Controllers\Auth\LoginController::class, 'destroy'])
+    ->name('logout');
+
