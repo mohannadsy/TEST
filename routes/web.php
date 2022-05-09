@@ -29,3 +29,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+
+Route::get('user-ip-address',[\App\Http\Controllers\UserController::class,'getUserIp']);
+
+Route::get('user-device',[\App\Http\Controllers\UserController::class,'userDevice']);

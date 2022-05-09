@@ -9,13 +9,32 @@ class UserController extends Controller
 {
     public function getUserIp(Request $request)
     {
-        return $user_ip_address=$request->ip();
+        return $user_ip_address = $request->ip();
+        // or :  $user_ip_address = \Request::ip();
 
-//        Request::ip();
     }
 
     public function userDevice()
     {
+        $agent = new \Jenssegers\Agent\Agent;
+
+        //  $platform = $agent->platform(); // operating system
+
+
+        if ($agent->isMobile()) {    // Mobile State
+            return 'Mobile';
+        } elseif ($agent->isDesktop()) {   //Desktop State  : Windows or Linux
+            if ($agent->is('Windows')) {
+                return 'Windows';
+            } elseif ($agent->is('Linux')) {
+                return 'Linux';
+            } else {
+                return '';
+            }
+        } else {
+            return 'Tablet';  // Other State : for example  Tablet
+        }
+
 
     }
 }
