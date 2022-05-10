@@ -29,4 +29,6 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('users/export/', [UserController::class, 'export']);
+Route::get('users/import/', [UserController::class, 'import']);
+
 require __DIR__.'/auth.php';
