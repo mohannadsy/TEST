@@ -15,17 +15,32 @@ use Inertia\Inertia;
 |
 */
 
+
+//Route::get('/', function () {
+//    return Inertia::render('Welcome', [
+//        'canLogin' => Route::has('login'),
+//        'canRegister' => Route::has('register'),
+//        'laravelVersion' => Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
+//});
+//
+//Route::get('/dashboard', function () {
+//    return Inertia::render('Dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
+//
+//require __DIR__.'/auth.php';
+
+
+Route::get('/post/pdf', [\App\Http\Controllers\PostController::class, 'createPDF']);
+
+
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('pdf.form');
 });
+Route::post('submitForm',[\App\Http\Controllers\UserController::class,'store']);
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/index',[\App\Http\Controllers\UserController::class,'index']);
 
-require __DIR__.'/auth.php';
+Route::get('/downloadPDF/{id}', [\App\Http\Controllers\UserController::class,'downloadPDF']);
+
