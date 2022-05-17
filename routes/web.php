@@ -28,4 +28,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/generate_pdf',[\App\Http\Controllers\PostController::class,'generate_pdf']);
+
+//Route::get('/generate_pdf', function () {
+//    return Inertia::render('GeneratePDF');
+//});
+
 require __DIR__.'/auth.php';
