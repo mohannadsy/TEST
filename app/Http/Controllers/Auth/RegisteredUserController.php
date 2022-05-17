@@ -50,9 +50,17 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        //save photo in folder
+        $file_extension=$request -> photo -> getClientOriginalExtension();
+        $file_name =time().' .'.$file_extension;
+        $path ='images/users';
+        $request -> photo ->move($path,$file_name);
+
+
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'photo' => $file_name ,
+            'name' => $request->name ,
+            'email' => $request->email ,
             'password' => Hash::make($request->password),
         ]);
 
@@ -60,22 +68,11 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
+
         return redirect(RouteServiceProvider::HOME);
+
+
     }
-    public function storeImage(StoreImage $request)
-    {
-
-        $image_path = '';
-
-        if ($request->hasFile('image')) {
-            $image_path = $request->file('image')->store('image', 'public');
-        }
-
-        $data = Image::create([
-            'image' => $image_path,
-        ]);
 
 
-        return Redirect::route('image.index');
-    }
 }

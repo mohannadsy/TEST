@@ -34,6 +34,6 @@ Route::get('/dashboard', function () {
 
 Route::get('image', [RegisteredUserController::class,'index'])->name('image.index');
 Route::get('image/create', [RegisteredUserController::class,'createImage'])->name('image.create');
-Route::post('image', [RegisteredUserController::class,'storeImage'])->name('image.store');
+Route::post('image', [RegisteredUserController::class,'store'])->name('Data.store');
 
 require __DIR__.'/auth.php';
