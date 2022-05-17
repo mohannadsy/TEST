@@ -12,7 +12,8 @@
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.7",
         "spatie/laravel-permission": "^5.5",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.0",
+        "carlos-meneses/laravel-mpdf": "^2.1.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

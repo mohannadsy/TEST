@@ -167,7 +167,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Meneses\LaravelMpdf\LaravelMpdfServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+
     ],
 
     /*
@@ -193,5 +194,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
     ])->toArray(),
+    'PDF' => Meneses\LaravelMpdf\Facades\LaravelMpdf::class
+
 
 ];
