@@ -11,7 +11,7 @@ trait  UserTrait
     
         $file_extension = $request->photo->getClientOriginalExtension();
         $file_name = time() . '.' . $file_extension;
-        $path = '/public';
+        $path = 'images';
         $request->photo->move($path, $file_name);
 
         return $file_name;
