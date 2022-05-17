@@ -14,6 +14,12 @@ use Inertia\Inertia;
 
 class RegisteredUserController extends Controller
 {
+    public function index()
+    {
+        $images = Image::latest()->get();
+        return Inertia::render('Image/Index', ['images' => $images]);
+    }
+
     /**
      * Display the registration view.
      *
@@ -22,6 +28,10 @@ class RegisteredUserController extends Controller
     public function create()
     {
         return Inertia::render('Auth/Register');
+    }
+    public function createImage()
+    {
+        return Inertia::render('Image/Create');
     }
 
     /**
@@ -51,5 +61,21 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+    }
+    public function storeImage(StoreImage $request)
+    {
+
+        $image_path = '';
+
+        if ($request->hasFile('image')) {
+            $image_path = $request->file('image')->store('image', 'public');
+        }
+
+        $data = Image::create([
+            'image' => $image_path,
+        ]);
+
+
+        return Redirect::route('image.index');
     }
 }
