@@ -10,18 +10,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use Inertia\Inertia;
+use App\Traits\UserTrait;
 
 class RegisteredUserController extends Controller
 {
+    use UserTrait;
     /**
      * Display the registration view.
      *
-     * @return \Inertia\Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
-        return Inertia::render('Auth/Register');
+        return view('auth.register');
     }
 
     /**
@@ -35,16 +36,33 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // 'photo' => 
         ]);
-
+        
+        $file_name = $this->saveImage($request);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'photo'=>$file_name,
         ]);
+
+        return view('auth.register',compact('user'));
+
+    // function saveImage($photo, $folder)
+    // {
+    //     //save photo in folder
+    //     $file_extension = $photo->getClientOriginalExtension();
+    //     $file_name = time() . '.' . $file_extension;
+    //     $path = $folder;
+    //     $photo->move($path, $file_name);
+    //     return $file_name;
+    // }
+
+     
 
         event(new Registered($user));
 
