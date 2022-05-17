@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,5 @@ Route::post('submitForm',[\App\Http\Controllers\UserController::class,'store']);
 
 Route::get('/index',[\App\Http\Controllers\UserController::class,'index']);
 
-Route::get('/downloadPDF/{id}', [\App\Http\Controllers\UserController::class,'downloadPDF']);
+Route::get('/download', [\App\Http\Controllers\UserController::class,'download']);
 

@@ -1,7 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <meta charset="utf-8">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{{--    <meta charset="utf-8"/>--}}
+    {{--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>--}}
+    <style>
+        * {
+            background: deepskyblue;
+            font-family: DejaVu Sans, sans-serif;
+            /*font-family: Arial , arabic;*/
+            /*direction: rtl*/
+            direction: rtl; text-align: right;
+        } </style>
+
+
     <title></title>
 </head>
 <body>
@@ -9,11 +22,13 @@
     <tr>
         <td>
             {{$user->id}}
+
         </td>
         <td>
             {{$user->name}}
         </td>
         <td>
+         
             {{$user->password}}
         </td>
         <td>
