@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
+// use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,6 +23,9 @@ class RegisteredUserController extends Controller
     public function create()
     {
         return view('auth.register');
+
+        // return inertia('Auth/Register');
+
     }
 
     /**
@@ -60,6 +63,9 @@ class RegisteredUserController extends Controller
         ]);
 
         return view('auth.register',compact('user'));
+        // return Inertia::render('Register.vue');
+
+        // return inertia('Auth/Register',compact('user'));
 
     // function saveImage($photo, $folder)
     // {
