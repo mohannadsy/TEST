@@ -30,10 +30,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-//image
+//image noor
 
-Route::get('image', [RegisteredUserController::class,'index'])->name('image.index');
-Route::get('image/create', [RegisteredUserController::class,'createImage'])->name('image.create');
-Route::post('image', [RegisteredUserController::class,'store'])->name('Data.store');
+//Route::get('image', [RegisteredUserController::class,'index'])->name('image.index');
+//Route::get('image/create', [RegisteredUserController::class,'createImage'])->name('image.create');
+//Route::post('image', [RegisteredUserController::class,'store'])->name('Data.store');
 
+//image 2  noor
+Route::controller(RegisteredUserController::class)->group(function(){
+    Route::get('image-upload', 'index2');
+    Route::post('image-upload', 'store2AfterCompress')->name('image.store');
+});
 require __DIR__.'/auth.php';

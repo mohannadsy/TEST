@@ -11,13 +11,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
+use Intervention\Image\Facades\Image;
 
 class RegisteredUserController extends Controller
 {
     public function index()
     {
-        $images = Image::latest()->get();
-        return Inertia::render('Image/Index', ['images' => $images]);
+//        $images = Image::latest()->get();
+//        return Inertia::render('Image/Index', ['images' => $images]);
+        $users=User::all();
+        return $users;
+    }
+
+    public function index2()
+    {
+        return view('imageUpload');
     }
 
     /**
@@ -29,10 +37,10 @@ class RegisteredUserController extends Controller
     {
         return Inertia::render('Auth/Register');
     }
-    public function createImage()
-    {
-        return Inertia::render('Image/Create');
-    }
+//    public function createImage()
+//    {
+//        return Inertia::render('Image/Create');
+//    }
 
     /**
      * Handle an incoming registration request.
@@ -70,6 +78,43 @@ class RegisteredUserController extends Controller
 
 
         return redirect(RouteServiceProvider::HOME);
+
+
+    }
+
+    public function store2AfterCompress(Request $request)
+    {
+        $this->validate($request, [
+            'photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+//        $x = 1;
+//        if ($request->file != "") {
+//            $file = $request->file("photo");
+//            $file_name = time() . '_' . $file->getClientOriginalExtension();
+//            $img = \Image::make($file);
+//            $img->save(\public_path($file_name), $x);
+//            return back();
+//        }
+//        return back();
+//    }
+
+
+        $image = $request->file('photo');
+        $imageName = time() . ' .' . $image->getClientOriginalExtension();
+
+        $destinationPathThumbnail = public_path('/images/users');
+        $img = Image::make($image->path());
+
+        $img->resize(100, 100, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPathThumbnail . '/' . $imageName);
+
+        $destinationPath = public_path('/images/users');
+        $image->move($destinationPath, $imageName);
+
+        return back()
+            ->with('success', 'Image Upload successful')
+            ->with('imageName', $imageName);
 
 
     }
