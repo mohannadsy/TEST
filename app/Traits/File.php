@@ -9,8 +9,8 @@ use Intervention\Image\Facades\Image;
 
 Trait File
 {   
-    public $public_path = "/public/uploadedImages/";
-    public $storage_path = "/storage/uploadedImages/";
+    public $public_path = "/public/Images/users";
+    public $storage_path = "/storage/Images/users";
 
     public function file( $file, $path, $width, $height ) : string
     {
