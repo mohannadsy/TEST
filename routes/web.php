@@ -25,3 +25,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/user', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store']);
+Route::get('/show', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'showUsers']);

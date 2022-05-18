@@ -33,16 +33,25 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+
+
+     public function showUsers()
+     {
+         $users = User::all();
+         return view('show-users',compact('users'));
+     }
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            // 'photo' => 
+            'photo' => ['required','image','mimes:jpeg,jpg,png','max:2048']
         ]);
         
-        $file_name = $this->saveImage($request);
+        $file_name = $this->saveImage($request->photo,'Images/users');
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
