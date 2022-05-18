@@ -110,7 +110,8 @@ class RegisteredUserController extends Controller
         })->save($destinationPathThumbnail . '/' . $imageName);
 
         $destinationPath = public_path('/images/users');
-        $image->move($destinationPath, $imageName);
+        $image->move($destinationPath, $img);
+//        $image->move($destinationPath, $imageName);
 
         return back()
             ->with('success', 'Image Upload successful')
