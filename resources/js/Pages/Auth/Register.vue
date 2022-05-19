@@ -26,10 +26,10 @@ const submit = () => {
         <Head title="Register" />
 
         <BreezeValidationErrors class="mb-4" />
-
+        <button type="button" @click="changeLang()">Click</button>
         <form @submit.prevent="submit">
             <div>
-                <BreezeLabel for="name" value="Name" />
+                <BreezeLabel for="name" :value="$t('Name')" />
                 <BreezeInput id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
             </div>
 

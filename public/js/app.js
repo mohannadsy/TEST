@@ -1,6 +1,42 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./lang lazy recursive ^\\.\\/.*\\.json$":
+/*!****************************************************!*\
+  !*** ./lang/ lazy ^\.\/.*\.json$ namespace object ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./ar.json": [
+		"./lang/ar.json",
+		"lang_ar_json"
+	],
+	"./en.json": [
+		"./lang/en.json",
+		"lang_en_json"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__.t(id, 3 | 16);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = "./lang lazy recursive ^\\.\\/.*\\.json$";
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
 /***/ "./node_modules/@inertiajs/inertia-vue3/dist/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/@inertiajs/inertia-vue3/dist/index.js ***!
@@ -23405,17 +23441,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: "Register"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeValidationErrors"], {
         "class": "mb-4"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        type: "button",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.changeLang();
+        })
+      }, "Click"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
         onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeLabel"], {
         "for": "name",
-        value: "Name"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeInput"], {
+        value: _ctx.$t('Name')
+      }, null, 8
+      /* PROPS */
+      , ["value"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeInput"], {
         id: "name",
         type: "text",
         "class": "mt-1 block w-full",
         modelValue: $setup.form.name,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $setup.form.name = $event;
         }),
         required: "",
@@ -23431,7 +23474,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "email",
         "class": "mt-1 block w-full",
         modelValue: $setup.form.email,
-        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $setup.form.email = $event;
         }),
         required: "",
@@ -23446,7 +23489,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "password",
         "class": "mt-1 block w-full",
         modelValue: $setup.form.password,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
           return $setup.form.password = $event;
         }),
         required: "",
@@ -23461,7 +23504,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         type: "password",
         "class": "mt-1 block w-full",
         modelValue: $setup.form.password_confirmation,
-        "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+        "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
           return $setup.form.password_confirmation = $event;
         }),
         required: "",
@@ -23884,17 +23927,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
-var _window$document$getE;
-
+/* harmony import */ var laravel_vue_i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! laravel-vue-i18n */ "./node_modules/laravel-vue-i18n/dist/index.js");
+/* harmony import */ var laravel_vue_i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(laravel_vue_i18n__WEBPACK_IMPORTED_MODULE_3__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
 
-var appName = ((_window$document$getE = window.document.getElementsByTagName('title')[0]) === null || _window$document$getE === void 0 ? void 0 : _window$document$getE.innerText) || 'Laravel';
+
 (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.createInertiaApp)({
   title: function title(_title) {
-    return "".concat(_title, " - ").concat(appName);
+    return "".concat(_title);
   },
   resolve: function resolve(name) {
     return __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*\\.vue$")("./".concat(name, ".vue"));
@@ -23908,7 +23951,12 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(app, props);
       }
-    }).use(plugin).mixin({
+    }).use(plugin).use(laravel_vue_i18n__WEBPACK_IMPORTED_MODULE_3__.i18nVue, {
+      lang: 'ar',
+      resolve: function resolve(lang) {
+        return __webpack_require__("./lang lazy recursive ^\\.\\/.*\\.json$")("./".concat(lang, ".json"));
+      }
+    }).mixin({
       methods: {
         route: route
       }
@@ -24053,7 +24101,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-gray-100[data-v-317d1a6e] {\n        background-color: #f7fafc;\n        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));\n}\n.border-gray-200[data-v-317d1a6e] {\n        border-color: #edf2f7;\n        border-color: rgba(237, 242, 247, var(--tw-border-opacity));\n}\n.text-gray-400[data-v-317d1a6e] {\n        color: #cbd5e0;\n        color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n.text-gray-500[data-v-317d1a6e] {\n        color: #a0aec0;\n        color: rgba(160, 174, 192, var(--tw-text-opacity));\n}\n.text-gray-600[data-v-317d1a6e] {\n        color: #718096;\n        color: rgba(113, 128, 150, var(--tw-text-opacity));\n}\n.text-gray-700[data-v-317d1a6e] {\n        color: #4a5568;\n        color: rgba(74, 85, 104, var(--tw-text-opacity));\n}\n.text-gray-900[data-v-317d1a6e] {\n        color: #1a202c;\n        color: rgba(26, 32, 44, var(--tw-text-opacity));\n}\n@media (prefers-color-scheme: dark) {\n.dark\\:bg-gray-800[data-v-317d1a6e] {\n            background-color: #2d3748;\n            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));\n}\n.dark\\:bg-gray-900[data-v-317d1a6e] {\n            background-color: #1a202c;\n            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));\n}\n.dark\\:border-gray-700[data-v-317d1a6e] {\n            border-color: #4a5568;\n            border-color: rgba(74, 85, 104, var(--tw-border-opacity));\n}\n.dark\\:text-white[data-v-317d1a6e] {\n            color: #fff;\n            color: rgba(255, 255, 255, var(--tw-text-opacity));\n}\n.dark\\:text-gray-400[data-v-317d1a6e] {\n            color: #cbd5e0;\n            color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.bg-gray-100[data-v-317d1a6e] {\r\n        background-color: #f7fafc;\r\n        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));\n}\n.border-gray-200[data-v-317d1a6e] {\r\n        border-color: #edf2f7;\r\n        border-color: rgba(237, 242, 247, var(--tw-border-opacity));\n}\n.text-gray-400[data-v-317d1a6e] {\r\n        color: #cbd5e0;\r\n        color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n.text-gray-500[data-v-317d1a6e] {\r\n        color: #a0aec0;\r\n        color: rgba(160, 174, 192, var(--tw-text-opacity));\n}\n.text-gray-600[data-v-317d1a6e] {\r\n        color: #718096;\r\n        color: rgba(113, 128, 150, var(--tw-text-opacity));\n}\n.text-gray-700[data-v-317d1a6e] {\r\n        color: #4a5568;\r\n        color: rgba(74, 85, 104, var(--tw-text-opacity));\n}\n.text-gray-900[data-v-317d1a6e] {\r\n        color: #1a202c;\r\n        color: rgba(26, 32, 44, var(--tw-text-opacity));\n}\n@media (prefers-color-scheme: dark) {\n.dark\\:bg-gray-800[data-v-317d1a6e] {\r\n            background-color: #2d3748;\r\n            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));\n}\n.dark\\:bg-gray-900[data-v-317d1a6e] {\r\n            background-color: #1a202c;\r\n            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));\n}\n.dark\\:border-gray-700[data-v-317d1a6e] {\r\n            border-color: #4a5568;\r\n            border-color: rgba(74, 85, 104, var(--tw-border-opacity));\n}\n.dark\\:text-white[data-v-317d1a6e] {\r\n            color: #fff;\r\n            color: rgba(255, 255, 255, var(--tw-text-opacity));\n}\n.dark\\:text-gray-400[data-v-317d1a6e] {\r\n            color: #cbd5e0;\r\n            color: rgba(203, 213, 224, var(--tw-text-opacity));\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24790,6 +24838,633 @@ var bind = __webpack_require__(/*! function-bind */ "./node_modules/function-bin
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vue-i18n/dist/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/laravel-vue-i18n/dist/index.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.i18nVue = exports.trans_choice = exports.reset = exports.getActiveLanguage = exports.wTransChoice = exports.transChoice = exports.wTrans = exports.trans = exports.loadLanguageAsync = exports.isLoaded = void 0;
+const vue_1 = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+const pluralization_1 = __webpack_require__(/*! ./pluralization */ "./node_modules/laravel-vue-i18n/dist/pluralization.js");
+const avoid_exceptions_1 = __webpack_require__(/*! ./utils/avoid-exceptions */ "./node_modules/laravel-vue-i18n/dist/utils/avoid-exceptions.js");
+const isServer = typeof window === 'undefined';
+/**
+ * The default options, for the plugin.
+ */
+const DEFAULT_OPTIONS = {
+    lang: !isServer && document.documentElement.lang ? document.documentElement.lang.replace('-', '_') : 'en',
+    resolve: (lang) => new Promise((resolve) => resolve({ default: {} }))
+};
+/**
+ * Stores the current options.
+ */
+let options = DEFAULT_OPTIONS;
+/**
+ * Stores the loaded languages.
+ */
+let loaded = [];
+/**
+ * The active messages to use.
+ */
+const activeMessages = (0, vue_1.reactive)({});
+/**
+ * Checks if the language is loaded.
+ */
+function isLoaded(lang) {
+    lang !== null && lang !== void 0 ? lang : (lang = getActiveLanguage());
+    lang = lang.replace('-', '_');
+    return loaded.some((row) => row.lang === lang);
+}
+exports.isLoaded = isLoaded;
+/**
+ * Loads the language file.
+ */
+function loadLanguageAsync(lang) {
+    lang = lang.replace('-', '_');
+    const loadedLang = loaded.find((row) => row.lang === lang);
+    if (loadedLang) {
+        return Promise.resolve(setLanguage(loadedLang));
+    }
+    return resolveLang(options.resolve, lang).then(({ default: messages }) => {
+        const data = { lang, messages };
+        loaded.push(data);
+        return setLanguage(data);
+    });
+}
+exports.loadLanguageAsync = loadLanguageAsync;
+/**
+ * Get the translation for the given key.
+ */
+function trans(key, replacements = {}) {
+    return wTrans(key, replacements).value;
+}
+exports.trans = trans;
+/**
+ * Get the translation for the given key and watch for any changes.
+ */
+function wTrans(key, replacements = {}) {
+    if (!activeMessages[key]) {
+        activeMessages[key] = key;
+    }
+    return (0, vue_1.computed)(() => makeReplacements(activeMessages[key], replacements));
+}
+exports.wTrans = wTrans;
+/**
+ * Translates the given message based on a count.
+ */
+function transChoice(key, number, replacements = {}) {
+    return wTransChoice(key, number, replacements).value;
+}
+exports.transChoice = transChoice;
+/**
+ * Translates the given message based on a count and watch for changes.
+ */
+function wTransChoice(key, number, replacements = {}) {
+    const message = wTrans(key, replacements);
+    replacements.count = number.toString();
+    return (0, vue_1.computed)(() => makeReplacements((0, pluralization_1.choose)(message.value, number, options.lang), replacements));
+}
+exports.wTransChoice = wTransChoice;
+/**
+ * Returns the current active language.
+ */
+function getActiveLanguage() {
+    return options.lang;
+}
+exports.getActiveLanguage = getActiveLanguage;
+/**
+ * Sets the language messages to the activeMessages.
+ */
+function setLanguage({ lang, messages }) {
+    if (!isServer) {
+        // When setting the HTML lang attribute, hyphen must be use instead of underscore.
+        document.documentElement.setAttribute('lang', lang.replace('_', '-'));
+    }
+    options.lang = lang;
+    for (const [key, value] of Object.entries(messages)) {
+        activeMessages[key] = value;
+    }
+    for (const [key] of Object.entries(activeMessages)) {
+        if (!messages[key]) {
+            activeMessages[key] = null;
+        }
+    }
+    return lang;
+}
+/**
+ * It resolves the language file or data, from direct data, require or Promise.
+ */
+function resolveLang(callable, lang) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const hasPhpTranslations = typeof process !== 'undefined' && process.env ? process.env.LARAVEL_VUE_I18N_HAS_PHP : false;
+        let data = (0, avoid_exceptions_1.avoidException)(callable, lang);
+        if (data instanceof Promise) {
+            if (hasPhpTranslations) {
+                const phpLang = yield (0, avoid_exceptions_1.avoidExceptionOnPromise)(callable(`php_${lang}`));
+                const jsonLang = yield (0, avoid_exceptions_1.avoidExceptionOnPromise)(data);
+                return new Promise((resolve) => resolve({
+                    default: Object.assign(Object.assign({}, phpLang), jsonLang)
+                }));
+            }
+            return new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
+                return resolve({
+                    default: yield (0, avoid_exceptions_1.avoidExceptionOnPromise)(data)
+                });
+            }));
+        }
+        if (hasPhpTranslations) {
+            return new Promise((resolve) => resolve({
+                default: Object.assign(Object.assign({}, data), (0, avoid_exceptions_1.avoidException)(callable, `php_${lang}`))
+            }));
+        }
+        return new Promise((resolve) => resolve({ default: data }));
+    });
+}
+/**
+ * Make the place-holder replacements on a line.
+ */
+function makeReplacements(message, replacements) {
+    const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+    Object.entries(replacements || []).forEach(([key, value]) => {
+        value = value.toString();
+        message = message
+            .replace(`:${key}`, value)
+            .replace(`:${key.toUpperCase()}`, value.toUpperCase())
+            .replace(`:${capitalize(key)}`, capitalize(value));
+    });
+    return message;
+}
+/**
+ * Resets all the data stored in memory.
+ */
+const reset = () => {
+    loaded = [];
+    options = DEFAULT_OPTIONS;
+    for (const [key] of Object.entries(activeMessages)) {
+        activeMessages[key] = null;
+    }
+};
+exports.reset = reset;
+/**
+ * Alias to `transChoice` to mimic the same function name from Laravel Framework.
+ */
+exports.trans_choice = transChoice;
+/**
+ * The Vue Plugin. to be used on your Vue app like this: `app.use(i18nVue)`
+ */
+exports.i18nVue = {
+    install: (app, currentOptions = {}) => {
+        options = Object.assign(Object.assign({}, options), currentOptions);
+        app.config.globalProperties.$t = (key, replacements) => trans(key, replacements);
+        app.config.globalProperties.$tChoice = (key, number, replacements) => transChoice(key, number, replacements);
+        loadLanguageAsync(options.lang);
+    }
+};
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vue-i18n/dist/pluralization.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/laravel-vue-i18n/dist/pluralization.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.choose = void 0;
+const get_plural_index_1 = __webpack_require__(/*! ./utils/get-plural-index */ "./node_modules/laravel-vue-i18n/dist/utils/get-plural-index.js");
+/**
+ * Select a proper translation string based on the given number.
+ */
+function choose(message, number, lang) {
+    let segments = message.split('|');
+    const extracted = extract(segments, number);
+    if (extracted !== null) {
+        return extracted.trim();
+    }
+    segments = stripConditions(segments);
+    const pluralIndex = (0, get_plural_index_1.getPluralIndex)(lang, number);
+    if (segments.length === 1 || !segments[pluralIndex]) {
+        return segments[0];
+    }
+    return segments[pluralIndex];
+}
+exports.choose = choose;
+/**
+ * Extract a translation string using inline conditions.
+ */
+function extract(segments, number) {
+    for (const part of segments) {
+        let line = extractFromString(part, number);
+        if (line !== null) {
+            return line;
+        }
+    }
+    return null;
+}
+/**
+ * Get the translation string if the condition matches.
+ */
+function extractFromString(part, number) {
+    const matches = part.match(/^[\{\[]([^\[\]\{\}]*)[\}\]](.*)/s) || [];
+    if (matches.length !== 3) {
+        return null;
+    }
+    const condition = matches[1];
+    const value = matches[2];
+    if (condition.includes(',')) {
+        let [from, to] = condition.split(',');
+        if (to === '*' && number >= parseFloat(from)) {
+            return value;
+        }
+        else if (from === '*' && number <= parseFloat(to)) {
+            return value;
+        }
+        else if (number >= parseFloat(from) && number <= parseFloat(to)) {
+            return value;
+        }
+    }
+    return parseFloat(condition) === number ? value : null;
+}
+/**
+ * Strip the inline conditions from each segment, just leaving the text.
+ */
+function stripConditions(segments) {
+    return segments.map((part) => part.replace(/^[\{\[]([^\[\]\{\}]*)[\}\]]/, ''));
+}
+//# sourceMappingURL=pluralization.js.map
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vue-i18n/dist/utils/avoid-exceptions.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/laravel-vue-i18n/dist/utils/avoid-exceptions.js ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.avoidExceptionOnPromise = exports.avoidException = void 0;
+const avoidException = (callback, param, defaults = {}) => {
+    try {
+        return callback(param);
+    }
+    catch (_a) {
+        return defaults;
+    }
+};
+exports.avoidException = avoidException;
+const avoidExceptionOnPromise = (promise, defaults = {}) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        return (yield promise).default || defaults;
+    }
+    catch (e) {
+        return defaults;
+    }
+});
+exports.avoidExceptionOnPromise = avoidExceptionOnPromise;
+//# sourceMappingURL=avoid-exceptions.js.map
+
+/***/ }),
+
+/***/ "./node_modules/laravel-vue-i18n/dist/utils/get-plural-index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/laravel-vue-i18n/dist/utils/get-plural-index.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getPluralIndex = void 0;
+/**
+ * Get the index to use for pluralization.
+ *
+ * The plural rules are derived from code of the Zend Framework (2010-09-25), which
+ * is subject to the new BSD license (https://framework.zend.com/license)
+ * Copyright (c) 2005-2010 - Zend Technologies USA Inc. (http://www.zend.com)
+ */
+function getPluralIndex(lang, number) {
+    switch (lang.replace('_', '-')) {
+        case 'af':
+        case 'af-ZA':
+        case 'bn':
+        case 'bn-BD':
+        case 'bn-IN':
+        case 'bg':
+        case 'bg-BG':
+        case 'ca':
+        case 'ca-AD':
+        case 'ca-ES':
+        case 'ca-FR':
+        case 'ca-IT':
+        case 'da':
+        case 'da-DK':
+        case 'de':
+        case 'de-AT':
+        case 'de-BE':
+        case 'de-CH':
+        case 'de-DE':
+        case 'de-LI':
+        case 'de-LU':
+        case 'el':
+        case 'el-CY':
+        case 'el-GR':
+        case 'en':
+        case 'en-AG':
+        case 'en-AU':
+        case 'en-BW':
+        case 'en-CA':
+        case 'en-DK':
+        case 'en-GB':
+        case 'en-HK':
+        case 'en-IE':
+        case 'en-IN':
+        case 'en-NG':
+        case 'en-NZ':
+        case 'en-PH':
+        case 'en-SG':
+        case 'en-US':
+        case 'en-ZA':
+        case 'en-ZM':
+        case 'en-ZW':
+        case 'eo':
+        case 'eo-US':
+        case 'es':
+        case 'es-AR':
+        case 'es-BO':
+        case 'es-CL':
+        case 'es-CO':
+        case 'es-CR':
+        case 'es-CU':
+        case 'es-DO':
+        case 'es-EC':
+        case 'es-ES':
+        case 'es-GT':
+        case 'es-HN':
+        case 'es-MX':
+        case 'es-NI':
+        case 'es-PA':
+        case 'es-PE':
+        case 'es-PR':
+        case 'es-PY':
+        case 'es-SV':
+        case 'es-US':
+        case 'es-UY':
+        case 'es-VE':
+        case 'et':
+        case 'et-EE':
+        case 'eu':
+        case 'eu-ES':
+        case 'eu-FR':
+        case 'fa':
+        case 'fa-IR':
+        case 'fi':
+        case 'fi-FI':
+        case 'fo':
+        case 'fo-FO':
+        case 'fur':
+        case 'fur-IT':
+        case 'fy':
+        case 'fy-DE':
+        case 'fy-NL':
+        case 'gl':
+        case 'gl-ES':
+        case 'gu':
+        case 'gu-IN':
+        case 'ha':
+        case 'ha-NG':
+        case 'he':
+        case 'he-IL':
+        case 'hu':
+        case 'hu-HU':
+        case 'is':
+        case 'is-IS':
+        case 'it':
+        case 'it-CH':
+        case 'it-IT':
+        case 'ku':
+        case 'ku-TR':
+        case 'lb':
+        case 'lb-LU':
+        case 'ml':
+        case 'ml-IN':
+        case 'mn':
+        case 'mn-MN':
+        case 'mr':
+        case 'mr-IN':
+        case 'nah':
+        case 'nb':
+        case 'nb-NO':
+        case 'ne':
+        case 'ne-NP':
+        case 'nl':
+        case 'nl-AW':
+        case 'nl-BE':
+        case 'nl-NL':
+        case 'nn':
+        case 'nn-NO':
+        case 'no':
+        case 'om':
+        case 'om-ET':
+        case 'om-KE':
+        case 'or':
+        case 'or-IN':
+        case 'pa':
+        case 'pa-IN':
+        case 'pa-PK':
+        case 'pap':
+        case 'pap-AN':
+        case 'pap-AW':
+        case 'pap-CW':
+        case 'ps':
+        case 'ps-AF':
+        case 'pt':
+        case 'pt-BR':
+        case 'pt-PT':
+        case 'so':
+        case 'so-DJ':
+        case 'so-ET':
+        case 'so-KE':
+        case 'so-SO':
+        case 'sq':
+        case 'sq-AL':
+        case 'sq-MK':
+        case 'sv':
+        case 'sv-FI':
+        case 'sv-SE':
+        case 'sw':
+        case 'sw-KE':
+        case 'sw-TZ':
+        case 'ta':
+        case 'ta-IN':
+        case 'ta-LK':
+        case 'te':
+        case 'te-IN':
+        case 'tk':
+        case 'tk-TM':
+        case 'ur':
+        case 'ur-IN':
+        case 'ur-PK':
+        case 'zu':
+        case 'zu-ZA':
+            return number === 1 ? 0 : 1;
+        case 'am':
+        case 'am-ET':
+        case 'bh':
+        case 'fil':
+        case 'fil-PH':
+        case 'fr':
+        case 'fr-BE':
+        case 'fr-CA':
+        case 'fr-CH':
+        case 'fr-FR':
+        case 'fr-LU':
+        case 'gun':
+        case 'hi':
+        case 'hi-IN':
+        case 'hy':
+        case 'hy-AM':
+        case 'ln':
+        case 'ln-CD':
+        case 'mg':
+        case 'mg-MG':
+        case 'nso':
+        case 'nso-ZA':
+        case 'ti':
+        case 'ti-ER':
+        case 'ti-ET':
+        case 'wa':
+        case 'wa-BE':
+        case 'xbr':
+            return number === 0 || number === 1 ? 0 : 1;
+        case 'be':
+        case 'be-BY':
+        case 'bs':
+        case 'bs-BA':
+        case 'hr':
+        case 'hr-HR':
+        case 'ru':
+        case 'ru-RU':
+        case 'ru-UA':
+        case 'sr':
+        case 'sr-ME':
+        case 'sr-RS':
+        case 'uk':
+        case 'uk-UA':
+            return number % 10 == 1 && number % 100 != 11
+                ? 0
+                : number % 10 >= 2 && number % 10 <= 4 && (number % 100 < 10 || number % 100 >= 20)
+                    ? 1
+                    : 2;
+        case 'cs':
+        case 'cs-CZ':
+        case 'sk':
+        case 'sk-SK':
+            return number == 1 ? 0 : number >= 2 && number <= 4 ? 1 : 2;
+        case 'ga':
+        case 'ga-IE':
+            return number == 1 ? 0 : number == 2 ? 1 : 2;
+        case 'lt':
+        case 'lt-LT':
+            return number % 10 == 1 && number % 100 != 11
+                ? 0
+                : number % 10 >= 2 && (number % 100 < 10 || number % 100 >= 20)
+                    ? 1
+                    : 2;
+        case 'sl':
+        case 'sl-SI':
+            return number % 100 == 1 ? 0 : number % 100 == 2 ? 1 : number % 100 == 3 || number % 100 == 4 ? 2 : 3;
+        case 'mk':
+        case 'mk-MK':
+            return number % 10 == 1 ? 0 : 1;
+        case 'mt':
+        case 'mt-MT':
+            return number == 1
+                ? 0
+                : number == 0 || (number % 100 > 1 && number % 100 < 11)
+                    ? 1
+                    : number % 100 > 10 && number % 100 < 20
+                        ? 2
+                        : 3;
+        case 'lv':
+        case 'lv-LV':
+            return number == 0 ? 0 : number % 10 == 1 && number % 100 != 11 ? 1 : 2;
+        case 'pl':
+        case 'pl-PL':
+            return number == 1 ? 0 : number % 10 >= 2 && number % 10 <= 4 && (number % 100 < 12 || number % 100 > 14) ? 1 : 2;
+        case 'cy':
+        case 'cy-GB':
+            return number == 1 ? 0 : number == 2 ? 1 : number == 8 || number == 11 ? 2 : 3;
+        case 'ro':
+        case 'ro-RO':
+            return number == 1 ? 0 : number == 0 || (number % 100 > 0 && number % 100 < 20) ? 1 : 2;
+        case 'ar':
+        case 'ar-AE':
+        case 'ar-BH':
+        case 'ar-DZ':
+        case 'ar-EG':
+        case 'ar-IN':
+        case 'ar-IQ':
+        case 'ar-JO':
+        case 'ar-KW':
+        case 'ar-LB':
+        case 'ar-LY':
+        case 'ar-MA':
+        case 'ar-OM':
+        case 'ar-QA':
+        case 'ar-SA':
+        case 'ar-SD':
+        case 'ar-SS':
+        case 'ar-SY':
+        case 'ar-TN':
+        case 'ar-YE':
+            return number == 0
+                ? 0
+                : number == 1
+                    ? 1
+                    : number == 2
+                        ? 2
+                        : number % 100 >= 3 && number % 100 <= 10
+                            ? 3
+                            : number % 100 >= 11 && number % 100 <= 99
+                                ? 4
+                                : 5;
+        default:
+            return 0;
+    }
+}
+exports.getPluralIndex = getPluralIndex;
+//# sourceMappingURL=get-plural-index.js.map
 
 /***/ }),
 
@@ -49850,6 +50525,36 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/create fake namespace object */
+/******/ 	(() => {
+/******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
+/******/ 		var leafPrototypes;
+/******/ 		// create a fake namespace object
+/******/ 		// mode & 1: value is a module id, require it
+/******/ 		// mode & 2: merge all properties of value into the ns
+/******/ 		// mode & 4: return value when already ns object
+/******/ 		// mode & 16: return value when it's Promise-like
+/******/ 		// mode & 8|1: behave like require
+/******/ 		__webpack_require__.t = function(value, mode) {
+/******/ 			if(mode & 1) value = this(value);
+/******/ 			if(mode & 8) return value;
+/******/ 			if(typeof value === 'object' && value) {
+/******/ 				if((mode & 4) && value.__esModule) return value;
+/******/ 				if((mode & 16) && typeof value.then === 'function') return value;
+/******/ 			}
+/******/ 			var ns = Object.create(null);
+/******/ 			__webpack_require__.r(ns);
+/******/ 			var def = {};
+/******/ 			leafPrototypes = leafPrototypes || [null, getProto({}), getProto([]), getProto(getProto)];
+/******/ 			for(var current = mode & 2 && value; typeof current == 'object' && !~leafPrototypes.indexOf(current); current = getProto(current)) {
+/******/ 				Object.getOwnPropertyNames(current).forEach((key) => (def[key] = () => (value[key])));
+/******/ 			}
+/******/ 			def['default'] = () => (value);
+/******/ 			__webpack_require__.d(ns, def);
+/******/ 			return ns;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -49859,6 +50564,39 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 				}
 /******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames not based on template
+/******/ 			if ({"lang_ar_json":1,"lang_en_json":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -49877,6 +50615,52 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		// data-webpack is not used as build has no uniqueName
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			;
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -49899,6 +50683,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/";
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
@@ -49911,7 +50700,44 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"css/app": 0
 /******/ 		};
 /******/ 		
-/******/ 		// no chunk on demand loading
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if("css/app" != chunkId) {
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						} else installedChunks[chunkId] = 0;
+/******/ 					}
+/******/ 				}
+/******/ 		};
 /******/ 		
 /******/ 		// no prefetching
 /******/ 		
