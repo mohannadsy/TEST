@@ -7,7 +7,7 @@
   \**********************/
 /***/ ((module) => {
 
-module.exports = {"Name":"الاسم"};
+module.exports = JSON.parse('{"Name":"الاسم","Email":"البريد الإلكتروني","Password":"كلمة المرور","Confirm Password":"تأكيد كلمة المرور"}');
 
 /***/ })
 
