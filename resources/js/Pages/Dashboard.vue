@@ -38,17 +38,16 @@ import { Head } from "@inertiajs/inertia-vue3";
                                     <td>Therichpost.com</td>
                                 </tr>
                             </tbody>
-                            <button v-print>Print the entire page</button>
-
-                            <div id="printMe" style="background: red">
-                                <p>رغد</p>
-                                <p>u made me hate this city</p>
-                                <p>
-                                    and i dont talk shit about u on the internet
-                                </p>
-                            </div>
-                            <button v-print="'#printMe'">Print local range</button>
                         </table>
+                        <button v-print>Print the entire page</button>
+
+                        <div id="printMe" style="background: red">
+                            <p>رغد</p>
+                            <p>u made me hate this city</p>
+                            <p>and i dont talk shit about u on the internet</p>
+                            
+                        </div>
+                        <button v-print="'#printMe'">Print</button>
                     </div>
                 </div>
             </div>
