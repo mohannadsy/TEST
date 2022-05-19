@@ -9,32 +9,27 @@ use App\Traits\file;
 
 class UserController extends Controller
 { 
-     
-    // public function imgResize(Request $request)
+
+    // use File;
+
+    // public function index()
     // {
-    //     $this->validate($request, [
-    //         'name' => 'required',
-    //         'imgFile' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-    //     ]);
-  
-    //     $image = $request->file('imgFile');
-    //     $input['imagename'] = time().'.'.$image->extension();
-     
-    //     $filePath = public_path('/thumbnails');
-    //     $img = Image::make($image->path());
-    //     $img->resize(110, 110, function ($const) {
-    //         $const->aspectRatio();
-    //     })->save($filePath.'/'.$input['imagename']);
-   
-    //     $filePath = public_path('/images');
-    //     $image->move($filePath, $input['imagename']);
-   
-    //     return back()
-    //         ->with('success','Image uploaded')
-    //         ->with('fileName',$input['imagename']);
+    //    return view('welcome');
     // }
 
+    // public function store(Request $request){
+
+    //         $user = new User();
+    //         $user->name = $request->name;
+    //         $user->password = $request->password;
+    //         $user->email = $request->email;
+    //         $user->image =$request->image;
     
+    //         if($user->save()){
+    //             return back()->with('message','User Created Successfully!');
+    //         }
+    //     }}
+
     use File;
 
     public function index()
@@ -42,10 +37,12 @@ class UserController extends Controller
        return view('welcome');
     }
  
+
+ 
     public function store(Request $request){
  
-       if( $file = $request->file('image') ) {
-             $path = 'Images/users';
+       if( $file = $request->file('photo') ) {
+             $path = 'images/users';
              $url = $this->file($file,$path,300,400);
          }
  
@@ -53,12 +50,34 @@ class UserController extends Controller
          $user->name = $request->name;
          $user->password = $request->password;
          $user->email = $request->email;
-         $user->image = $url;
+         $user->photo = $url;
  
          if($user->save()){
              return back()->with('message','Product Created Successfully!');
          }
     }
+
+    // public function store(Request $request){
+ 
+    //    if( $file = $request->file('image') ) {
+          
+    //          $path = 'public';
+    //          $url = $this->file($file,$path,300,400);
+    //      }
+ 
+    //      $user = new User();
+    //      $user->name = $request->name;
+    //      $user->password = $request->password;
+    //      $user->email = $request->email;
+    //      $user->image = $url;
+ 
+    //      if($user->save()){
+    //          return back()->with('message','User Created Successfully!');
+    //      }
+    // }
+
+
 }
+
 
         

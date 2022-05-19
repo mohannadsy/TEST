@@ -147,12 +147,12 @@
  <!DOCTYPE html>
  <html>
  <head>
-     <title>Laravel Resize Image Tutorial With Helper Trait - CodeCheef </title>
+     <title>Resize Image </title>
  </head>
  <body>
    
  <div class="container">
-     <h1>Laravel Resize Image Tutorial With Helper Trait - CodeCheef</h1>
+     <h1> Resize Image </h1>
      @if (count($errors) > 0)
          <div class="alert alert-danger">
              <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -171,12 +171,12 @@
      </div>
      @endif
           
-    <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
         <input type="text" name="name" class="form-control" placeholder="name">
         <input type="password" name="password" class="form-control" placeholder="price">
-        <input type="email" name="email" class="form-control" placeholder="qty">
-        <input type="file" name="image" class="image">
+        <input type="email" name="email" class="form-control" placeholder="email">
+        <input type="file" name="photo" class="image">
 
         <button type="submit" class="btn btn-success">Add User</button>
     </form>
