@@ -26,7 +26,6 @@ const submit = () => {
         <Head title="Register" />
 
         <BreezeValidationErrors class="mb-4" />
-        <button type="button" @click="changeLang()">Click</button>
         <form @submit.prevent="submit">
             <div>
                 <BreezeLabel for="name" :value="$t('Name')" />
