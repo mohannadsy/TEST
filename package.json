@@ -29,6 +29,7 @@
         "webpack-node-externals": "^3.0.0"
     },
     "dependencies": {
-        "laravel-vue-i18n": "^1.4.3"
+        "laravel-vue-i18n": "^1.4.3",
+        "loader": "^2.1.1"
     }
 }

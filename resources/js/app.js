@@ -3,7 +3,11 @@ require('./bootstrap');
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
-import { i18nVue } from 'laravel-vue-i18n'
+import { i18nVue } from 'laravel-vue-i18n';
+import { createApp } from 'vue'
+import i18n from './i18n'
+
+// createApp(App).use(i18n).use(i18n).mount('#app')
 
 createInertiaApp({
     title: (title) => `${title}`,
