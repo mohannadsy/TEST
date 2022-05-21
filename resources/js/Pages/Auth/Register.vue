@@ -1,4 +1,5 @@
 <script setup>
+
     import BreezeButton from '@/Components/Button.vue';
     import BreezeGuestLayout from '@/Layouts/Guest.vue';
     import BreezeInput from '@/Components/Input.vue';
@@ -19,9 +20,27 @@
             onFinish: () => form.reset('password', 'password_confirmation'),
         });
     };
+
+    //
+    // const ChangeLang = () => {
+    //     form.post(route('register'), {
+    //     data:() =>({languages:['en','ar']}),
+    //         $this.$i18n.local = lang
+    // })}
+
+    // export default {
+    //     name:"Register",
+    //     data:() =>({languages:['en','ar']}),
+    //     methods:{
+    //         ChangeLang(lang){
+    //             $this.$i18n.local = lang
+    //         },
+    //     }
+    // }
 </script>
 
 <template>
+
     <BreezeGuestLayout>
         <Head title="Register" />
 
@@ -39,7 +58,7 @@
             </div>
 
             <div class="mt-4">
-                <BreezeLabel for="password" :value="$('Password')" />
+                <BreezeLabel for="password" :value="$t('Password')" />
                 <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
             </div>
 
@@ -50,11 +69,10 @@
 
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
-                </Link>
+                    Already registered?  </Link>
 
                 <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                    Reg
                 </BreezeButton>
             </div>
         </form>
