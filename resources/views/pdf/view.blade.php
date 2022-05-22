@@ -17,7 +17,12 @@
                 <td>{{$user->email}}</td>
                 {{-- <td>{{$user->photo}}</td> --}}
                 <td><img src="{{ asset('/storage/uploadedImages/' . $user->photo . "PNG") }}"/></td>
+
+
+
+                
                 {{--                Failed Tests  <3       --}}
+                {{-- <img src="{{  asset('/storage/uploadedImages/' .base64_encode( $user->photo )) }}"> --}}
                 {{-- <img src="data:image/JPG;base64,'.base64_encode($user->photo).'"/> --}}
                 {{-- <img src="/storage/uploadedImages/{{$user->photo}}.png" > --}}
                 {{-- <img src="data:image/jpeg;base64,'.base64_encode($user->photo  ).'"/>;

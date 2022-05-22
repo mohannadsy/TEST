@@ -65,20 +65,49 @@ class UserController extends Controller
             $url = $this->file($file, $path, 300, 400);
         }
 
+
+        // store blob images 
+        $file = $request->file('photo');
+        $imageType = $file->getClientOriginalExtension();
+        
+        $image_resize = Image::make($file)->resize( null, 90, function ( $constraint ) {
+                                                                $constraint->aspectRatio();
+                                                            })->encode( $imageType );            
+
+    
         $user = new User();
         $user->name = $request->name;
         $user->password = $request->password;
         $user->email = $request->email;
-        $user->photo = $url;
+        // $user->photo = $url;
+
+        $user->photo = $image_resize;
 
 
-//          $file = $request->file('image');
-//          $contents = $file->openFile()->fread($file->getSize());
 
         if ($user->save()) {
             return back()->with('message', 'Product Created Successfully!');
         }
     }
+
+
+    // // store blob images in database 
+    // $file = $request->file('image');
+    // $contents = $file->openFile()->fread($file->getSize());
+
+    // // or 
+    // $request->image->storeAs('images', $imageName);  // storage/app/images/file.png
+
+    // save blob images 
+   
+            // $path = $request->file('photo')->getRealPath();
+            // $photo = file_get_contents($path);
+            // $base64 = base64_encode($photo);
+            // $user->photo = $base64;
+            // $user->save();
+            // return response('success');
+
+
 
     // public function store(Request $request){
 

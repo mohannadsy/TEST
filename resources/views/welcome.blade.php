@@ -176,7 +176,7 @@
         <input type="text" name="name" class="form-control" placeholder="name">
         <input type="password" name="password" class="form-control" placeholder="price">
         <input type="email" name="email" class="form-control" placeholder="email">
-        <input type="file" name="photo" class="image">
+        <input type="file" name="photo" class="image"  accept="image/png, image/jpeg">
 
         <button type="submit" class="btn btn-success">Add User</button>
     </form>
