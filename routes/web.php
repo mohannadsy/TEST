@@ -19,6 +19,7 @@ use Inertia\Inertia;
 
 
 Route::get('/',  [\App\Http\Controllers\UserController::class, 'index']);
+Route::get('/show',  [\App\Http\Controllers\UserController::class, 'show']);
 
 
 Route::post('/store', [\App\Http\Controllers\UserController::class, 'store'])->name('store');

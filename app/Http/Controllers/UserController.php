@@ -35,11 +35,19 @@ class UserController extends Controller
     public function index()
     {
        return view('welcome');
+    //    return Inertia::render('Auth/Register');
     }
 
 
+  public function show()
+{
+    $users = User::all();
+    return view('pdf.view' ,compact('users'));
+}   
 
-    public function store(Request $request){
+
+
+public function store(Request $request){
 
        if( $file = $request->file('photo') ) {
              $path = '/users';
