@@ -16,16 +16,16 @@ use Inertia\Inertia;
 */
 
 
-
-
-Route::get('/',  [\App\Http\Controllers\UserController::class, 'index']);
-Route::get('/show',  [\App\Http\Controllers\UserController::class, 'show']);
+Route::get('/', [\App\Http\Controllers\UserController::class, 'index']);
+Route::get('/show', [\App\Http\Controllers\UserController::class, 'show']);
 
 
 Route::post('/store', [\App\Http\Controllers\UserController::class, 'store'])->name('store');
 
-// Route::post('/', function () { return view('welcome');})->name('img');
 
+//Route::get('/dbimage/{id}',[\App\Http\Controllers\UserController::class, 'getImage']);
+
+// Route::post('/', function () { return view('welcome');})->name('img');
 
 
 // Route::get('/', function () {
