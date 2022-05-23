@@ -16,12 +16,18 @@
                 <td>{{$user->password}}</td>
                 <td>{{$user->email}}</td>
                 {{-- <td>{{$user->photo}}</td> --}}
+
+
+
+                <form enctype="multipart/form-data" >
+
                 <td><img src="{{ asset('/storage/uploadedImages/' . $user->photo . "PNG") }}"/></td>
+                <td> ECHO <img src="data:image/jpeg;base64,'.base64_encode({{$user->photo}}).'"/></td>
+
+                </form>
 
 
-
-                
-                {{--                Failed Tests  <3       --}}
+                {{--                Failed Tests  <3   :( WTF      --}}
                 {{-- <img src="{{  asset('/storage/uploadedImages/' .base64_encode( $user->photo )) }}"> --}}
                 {{-- <img src="data:image/JPG;base64,'.base64_encode($user->photo).'"/> --}}
                 {{-- <img src="/storage/uploadedImages/{{$user->photo}}.png" > --}}

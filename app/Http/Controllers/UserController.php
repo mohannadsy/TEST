@@ -59,45 +59,41 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+// resize images --- trait
+//        if ($file = $request->file('photo')) {
+//            $path = '/users';
+//            $url = $this->file($file, $path, 300, 400);
+//        }
 
-        if ($file = $request->file('photo')) {
-            $path = '/users';
-            $url = $this->file($file, $path, 300, 400);
-        }
-
-
-        // // store blob images ---------------1----------------
-        // $file = $request->file('photo');
-        // $imageType = $file->getClientOriginalExtension();
-        
-        // $image_resize = Image::make($file)->resize( null, 90, function ( $constraint ) {
-        //                                                         $constraint->aspectRatio();
-        //                                                     })->encode( $imageType );  
-       // $user->photo = $image_resize;// in add user
-        
-
-
-
-        // // ----------------2----------------
-
-        // $path = $request->file('photo')->getRealPath();    
-        // $photo = file_get_contents($path);
-        // $base64 = base64_encode($photo);
-        // $user->photo = $base64;// in add user
-
-
-        
 
         $user = new User();
         $user->name = $request->name;
         $user->password = $request->password;
         $user->email = $request->email;
-        $user->photo = $url;
-        
+//        $user->photo = $url;// resize images --- trait
+
+
         if ($user->save()) {
             return back()->with('message', 'Product Created Successfully!');
         }
     }
+
+    // // store blob images ---------------1----------------
+    // $file = $request->file('photo');
+    // $imageType = $file->getClientOriginalExtension();
+
+    // $image_resize = Image::make($file)->resize( null, 90, function ( $constraint ) {
+    //                                                         $constraint->aspectRatio();
+    //                                                     })->encode( $imageType );
+    // $user->photo = $image_resize;// in add user
+
+
+    // // ----------------2----------------
+
+    // $path = $request->file('photo')->getRealPath();
+    // $photo = file_get_contents($path);
+    // $base64 = base64_encode($photo);
+    // $user->photo = $base64;// in add user
 
 
     // // store blob images in database --------3-----------
@@ -108,12 +104,10 @@ class UserController extends Controller
     // $request->image->storeAs('images', $imageName);  // storage/app/images/file.png
 
     // save blob images -----5-------
-            // $path = $request->file('photo')->getRealPath();
-            // $photo = file_get_contents($path);
-            // $base64 = base64_encode($photo);
-            // $user->photo = $base64; // in add user
-
-
+    // $path = $request->file('photo')->getRealPath();
+    // $photo = file_get_contents($path);
+    // $base64 = base64_encode($photo);
+    // $user->photo = $base64; // in add user
 
 
     // public function store(Request $request){
