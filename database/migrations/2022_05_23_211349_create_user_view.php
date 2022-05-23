@@ -36,9 +36,10 @@ class CreateUserView extends Migration
      */
     private function createView(): string
     {
-//        return <<<SQL
-        \DB::statement("
-            CREATE VIEW  view_user_data AS
+
+
+        return '
+            CREATE VIEW view_user_data AS
                 SELECT
                     users.id,
                     users.name,
@@ -46,8 +47,20 @@ class CreateUserView extends Migration
                     (SELECT count(*) FROM posts
                                 WHERE posts.user_id = users.id
                             ) AS total_posts
-                FROM users");
-//                  SQL;
+                FROM users;
+            ';
+//        return <<<SQL
+//         DB::statement("
+//            CREATE VIEW  view_user_data AS
+//                SELECT
+//                    users.id,
+//                    users.name,
+//                    users.email,
+//                    (SELECT count(*) FROM posts
+//                                WHERE posts.user_id = users.id
+//                            ) AS total_posts
+//                FROM users");
+////                  SQL;
     }
     //                    (SELECT count(*) FROM comments
 //                                WHERE comments.user_id = users.id
