@@ -23,7 +23,7 @@ Route::get('/show', [\App\Http\Controllers\UserController::class, 'show']);
 Route::post('/store', [\App\Http\Controllers\UserController::class, 'store'])->name('store');
 
 
-//Route::get('/dbimage/{id}',[\App\Http\Controllers\UserController::class, 'getImage']);
+//Route::get('/dbimage/{id}', [\App\Http\Controllers\UserController::class, 'getImage']);
 
 // Route::post('/', function () { return view('welcome');})->name('img');
 

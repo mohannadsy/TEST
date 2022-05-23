@@ -18,11 +18,11 @@
                 {{-- <td>{{$user->photo}}</td> --}}
 
 
+                <form enctype="multipart/form-data">
 
-                <form enctype="multipart/form-data" >
+                    {{--                <td><img src="{{ asset('/storage/uploadedImages/' . $user->photo . "PNG") }}"/></td>--}}
 
-                <td><img src="{{ asset('/storage/uploadedImages/' . $user->photo . "PNG") }}"/></td>
-                <td> ECHO <img src="data:image/jpeg;base64,'.base64_encode({{$user->photo}}).'"/></td>
+                    <td><img src="data:image/jpeg;base64,'.base64_encode({{$user->photo}}).'"/></td>
 
                 </form>
 
