@@ -44,8 +44,8 @@ class CreateUserView extends Migration
                     users.name,
                     users.email,
                     (SELECT count(*) FROM posts
-                                WHERE posts.user_id = user.id
-                            ) AS total_posts,
+                                WHERE posts.user_id = users.id
+                            ) AS total_posts
                 FROM users");
 //                  SQL;
     }

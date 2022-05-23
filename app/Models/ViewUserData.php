@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ViewUserData extends Model
 {
     use HasFactory;
+
+    public $table = "view_user_data";
+
+
 }
