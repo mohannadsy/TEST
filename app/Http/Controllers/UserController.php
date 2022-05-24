@@ -17,4 +17,13 @@ class UserController extends Controller
 
         dd($users);
     }
+
+    public function PostView()
+    {
+        $users = CreatPostView::select("*")
+            ->get()
+            ->toArray();
+
+        dd($users);
+    }
 }
