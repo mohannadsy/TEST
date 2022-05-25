@@ -31,4 +31,3 @@ Route::get('/dashboard', function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/view', [\App\Http\Controllers\UserController::class], 'index');
-Route::get('/post', [\App\Http\Controllers\UserController::class], 'PostView');
